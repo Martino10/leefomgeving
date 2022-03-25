@@ -14,9 +14,9 @@ class CreateGeluidTable extends Migration
     public function up()
     {
         Schema::create('geluid', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->integer('Hertz');
-            $table->timestamps();
+            $table->dateTime('gemeten_op');
         });
     }
 

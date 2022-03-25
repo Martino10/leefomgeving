@@ -14,9 +14,9 @@ class CreateGasTable extends Migration
     public function up()
     {
         Schema::create('gas', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->integer('concentratie');
-            $table->timestamps();
+            $table->dateTime('gemeten_op');
         });
     }
 

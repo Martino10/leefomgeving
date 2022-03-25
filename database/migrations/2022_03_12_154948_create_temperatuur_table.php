@@ -14,9 +14,9 @@ class CreateTemperatuurTable extends Migration
     public function up()
     {
         Schema::create('temperatuur', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->integer('graden');
-            $table->timestamps();
+            $table->dateTime('gemeten_op');
         });
     }
 

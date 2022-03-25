@@ -19,7 +19,7 @@ mydb = mysql.connector.connect(
 mycursor = mydb.cursor()
 
 deleteTABLE = """ truncate table TABLE """
-mycursor.execute(deleteLDR)
+mycursor.execute(deleteTABLE)
 mydb.commit()
 while True:
     # data to graph

@@ -15,10 +15,12 @@ class GasTableSeeder extends Seeder
     public function run()
     {
         DB::table('gas')->insert([
+            'location_id' => 1,
             'concentratie' => 312,
         ]);
 
         DB::table('gas')->insert([
+            'location_id' => 1,
             'concentratie' => 412,
         ]);
     }

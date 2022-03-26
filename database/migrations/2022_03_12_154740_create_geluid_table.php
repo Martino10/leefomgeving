@@ -15,8 +15,9 @@ class CreateGeluidTable extends Migration
     {
         Schema::create('geluid', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('Hertz');
-            $table->dateTime('gemeten_op');
+            $table->unsignedBigInteger('location_id')->default(1);
+            $table->float('hertz');
+            $table->timestamp('gemeten_op')->default(\DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

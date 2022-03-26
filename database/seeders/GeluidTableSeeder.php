@@ -15,10 +15,12 @@ class GeluidTableSeeder extends Seeder
     public function run()
     {
         DB::table('geluid')->insert([
+            'location_id' => 1,
             'hertz' => 45,
         ]);
 
-        DB::table('gas')->insert([
+        DB::table('geluid')->insert([
+            'location_id' => 1,
             'hertz' => 60,
         ]);
     }

@@ -15,6 +15,7 @@ class LocationsTableSeeder extends Seeder
     public function run()
     {
         DB::table('locations')->insert([
+            'id' => 1,
             'naam' => "Le Carrefour",
             'plaats' => "Leiden",
             'adres' => "Dellaertweg 1",
@@ -22,6 +23,7 @@ class LocationsTableSeeder extends Seeder
         ]);
 
         DB::table('locations')->insert([
+            'id' => 2,
             'naam' => "Thuis",
             'plaats' => "Woubrugge",
             'adres' => "Beatrixlaan 42",

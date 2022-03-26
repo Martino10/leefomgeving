@@ -15,10 +15,12 @@ class LuchtvochtigheidTableSeeder extends Seeder
     public function run()
     {
         DB::table('luchtvochtigheid')->insert([
+            'location_id' => 1,
             'luchtvochtigheid' => 121,
         ]);
 
         DB::table('luchtvochtigheid')->insert([
+            'location_id' => 1,
             'luchtvochtigheid' => 232,
         ]);
     }

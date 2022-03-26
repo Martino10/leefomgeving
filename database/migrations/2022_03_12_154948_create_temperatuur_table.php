@@ -16,7 +16,7 @@ class CreateTemperatuurTable extends Migration
         Schema::create('temperatuur', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('location_id')->default(1);
-            $table->float('graden');
+            $table->float('graden_celsius');
             $table->timestamp('gemeten_op')->default(\DB::raw('CURRENT_TIMESTAMP'));
         });
     }

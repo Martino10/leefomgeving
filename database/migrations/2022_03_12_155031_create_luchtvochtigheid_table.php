@@ -16,7 +16,7 @@ class CreateLuchtvochtigheidTable extends Migration
         Schema::create('luchtvochtigheid', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('location_id')->default(1);
-            $table->float('luchtvochtigheid');
+            $table->float('luchtvochtigheid'); # in procenten
             $table->timestamp('gemeten_op')->default(\DB::raw('CURRENT_TIMESTAMP'));
         });
     }

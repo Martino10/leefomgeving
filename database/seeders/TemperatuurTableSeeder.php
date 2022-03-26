@@ -15,11 +15,11 @@ class TemperatuurTableSeeder extends Seeder
     public function run()
     {
         DB::table('temperatuur')->insert([
-            'graden' => 12,
+            'graden_celsius' => 12,
         ]);
 
         DB::table('temperatuur')->insert([
-            'graden' => 20,
+            'graden_celsius' => 20,
         ]);
     }
 }

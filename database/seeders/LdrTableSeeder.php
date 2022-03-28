@@ -19,7 +19,7 @@ class LdrTableSeeder extends Seeder
             'value' => 700,
         ]);
 
-        DB::table('temperatuur')->insert([
+        DB::table('ldr')->insert([
             'location_id' => 1,
             'value' => 420,
         ]);

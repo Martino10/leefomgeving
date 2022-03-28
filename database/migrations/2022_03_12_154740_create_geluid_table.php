@@ -16,7 +16,7 @@ class CreateGeluidTable extends Migration
         Schema::create('geluid', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('location_id')->default(1);
-            $table->string('geluidsoverlast'); # ja of nee, gebaseerd op true/false waarde
+            $table->string('value'); # ja of nee, gebaseerd op true/false waarde
             $table->timestamp('gemeten_op')->default(\DB::raw('CURRENT_TIMESTAMP'));
         });
     }

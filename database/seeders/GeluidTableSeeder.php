@@ -17,12 +17,12 @@ class GeluidTableSeeder extends Seeder
         
         DB::table('geluid')->insert([
             'location_id' => 1,
-            'geluidsoverlast' => "nee",
+            'value' => "nee",
         ]);
 
         DB::table('geluid')->insert([
             'location_id' => 1,
-            'geluidsoverlast' => "ja",
+            'value' => "ja",
         ]);
     }
 }

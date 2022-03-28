@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTemperatuurTable extends Migration
+class CreateLdrTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTemperatuurTable extends Migration
      */
     public function up()
     {
-        Schema::create('temperatuur', function (Blueprint $table) {
+        Schema::create('ldr', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('location_id')->default(1);
             $table->float('value');
@@ -28,6 +28,6 @@ class CreateTemperatuurTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('temperatuur');
+        Schema::dropIfExists('ldr');
     }
 }

@@ -16,7 +16,7 @@ class CreateGasTable extends Migration
         Schema::create('gas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('location_id')->default(1);
-            $table->float('ppm');
+            $table->float('value');
             $table->timestamp('gemeten_op')->default(\DB::raw('CURRENT_TIMESTAMP'));
         });
     }

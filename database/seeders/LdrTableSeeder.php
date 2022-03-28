@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use DB;
 
-class GasTableSeeder extends Seeder
+class LdrTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,14 +14,14 @@ class GasTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('gas')->insert([
+        DB::table('ldr')->insert([
             'location_id' => 1,
-            'value' => 312,
+            'value' => 700,
         ]);
 
-        DB::table('gas')->insert([
+        DB::table('temperatuur')->insert([
             'location_id' => 1,
-            'value' => 412,
+            'value' => 420,
         ]);
     }
 }

@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             TemperatuurTableSeeder::class,
             LuchtvochtigheidTableSeeder::class,
             GasTableSeeder::class,
+            LdrTableSeeder::class,
             LocationsTableSeeder::class,
         ]);
     }

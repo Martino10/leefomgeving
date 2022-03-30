@@ -24,14 +24,14 @@ while True:
             geluidsoverlast = nee
         ldrValue = dataArray[4]
         sql = """INSERT INTO gas (value) VALUES (%s)""" #namen van 
-        mycursor.execute(sql, (sqlgas,)) #execute de sql statement met data uit lijst. %s is waarde van sqlgas.
+        mycursor.execute(sql, (sqlgas)) #execute de sql statement met data uit lijst. %s is waarde van sqlgas.
         sql = """INSERT INTO temperatuur (value) VALUES (%s)"""
-        mycursor.execute(sql, (sqltemp,))
+        mycursor.execute(sql, (sqltemp))
         sql = """INSERT INTO luchtvochtigheid (value) VALUES (%s)"""
-        mycursor.execute(sql, (sqlhumid,))
+        mycursor.execute(sql, (sqlhumid))
         sql = """INSERT INTO geluid (value) VALUES (%s)"""
-        mycursor.execute(sql, (geluidsoverlast,))
+        mycursor.execute(sql, (geluidsoverlast))
         sql = """INSERT INTO ldr (value) VALUES (%s)"""
-        mycursor.execute(sql, (ldrValue,))
+        mycursor.execute(sql, (ldrValue))
         
         #tabelaanpassingen zijn altijd nog mogelijk

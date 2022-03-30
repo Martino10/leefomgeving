@@ -19,9 +19,9 @@ while True:
         sqlhumid = dataArray[2]
         sqlsound = dataArray[3]
         if sqlsound >= 1:
-            geluidsoverlast = ja
+            geluidsoverlast = "ja"
         else:
-            geluidsoverlast = nee
+            geluidsoverlast = "nee"
         ldrValue = dataArray[4]
         sql = """INSERT INTO gas (value) VALUES (%s)""" #namen van 
         mycursor.execute(sql, (sqlgas)) #execute de sql statement met data uit lijst. %s is waarde van sqlgas.

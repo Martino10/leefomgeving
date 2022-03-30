@@ -14,14 +14,12 @@ class CreateLocationsTable extends Migration
     public function up()
     {
         Schema::create('locations', function (Blueprint $table) {
-            $table->integer('id');
+            $table->bigIncrements('id');
             $table->string('naam');
             $table->string('plaats');
             $table->string('adres');
             $table->string('foto');
-
             $table->timestamp('aangemaakt_op')->default(\DB::raw('CURRENT_TIMESTAMP'));
-            
         });
     }
 

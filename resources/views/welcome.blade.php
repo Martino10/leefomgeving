@@ -8,7 +8,7 @@
 
         <!-- Scripts -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}" />
-        <script defer src="{{ mix('js/app.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.12/vue.js"></script>
 
         <!-- Style -->
         <style>
@@ -31,7 +31,9 @@
     </head>
     <body>
         <div id="app">
-            <router-view></router-view>
+            <home></home>
+            <router-view><router-view>
         </div>
+        <script defer src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

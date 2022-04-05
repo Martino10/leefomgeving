@@ -6,9 +6,9 @@
         </div>
         <img src="/img/background1.svg" alt="Background vector"/>
         <div class="login">
-            <!-- <router-link to="/login"> -->
+            <router-link to="/login">
             <button class="loginBtn">Inloggen</button>
-            <!-- </router-link> -->
+            </router-link>
             <p>Nog geen account? <a href="/Login.html">Maak een account aan</a></p>
         </div>
     </div>
@@ -17,12 +17,9 @@
 <script>
 
 export default {
-  data() {
-    return {
-        data: {
-        }
+  mounted() {
+        console.log('Component mounted.')
     }
-  },
 }
 </script>
 

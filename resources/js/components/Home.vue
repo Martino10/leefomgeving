@@ -9,7 +9,7 @@
             <!-- <router-link to="/login"> -->
             <button class="loginBtn">Inloggen</button>
             <!-- </router-link> -->
-            <p>Nog geen account? <a href="/register.html">Maak een account aan</a></p>
+            <p>Nog geen account? <a href="/Login.html">Maak een account aan</a></p>
         </div>
     </div>
 </template>
@@ -26,7 +26,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .container {
     position: fixed;
     display: flex;

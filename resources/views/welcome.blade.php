@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>IM5</title>
 
         <!-- Scripts -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}" />
-        <script defer src="{{ mix('js/app.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.12/vue.js"></script>
 
         <!-- Style -->
         <style>
@@ -32,6 +32,8 @@
     <body>
         <div id="app">
             <home></home>
+            <router-view><router-view>
         </div>
+        <script defer src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

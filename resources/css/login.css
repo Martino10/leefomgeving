@@ -1,0 +1,101 @@
+.loginContainer {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10vh;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin: auto;   
+    height: 100vh;
+    width: 100vw;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-top: 4vh;
+    align-items: center;
+    margin: auto;
+    height: 100vh;
+    width: 100vw;
+    color: white;
+}
+
+.email h1, .password h1 {
+    font-weight: 500;
+    font-size: 1.7rem;
+    padding: 1.5rem 0 1rem 0;
+    text-align: left;
+}
+
+
+.rememberForget {
+   display: flex;
+   width: 82vw;
+   align-items: center;
+   margin-top: 1rem;
+   font-size: 1.2rem;   
+}
+
+.rememberForget input{
+    height: 2rem;
+    width: 2rem;
+}
+
+.rememberForget label {
+    margin-left: 0.5rem;
+}
+
+.rememberForget p {
+    margin-left: auto;
+    text-decoration: none;
+    color: white;
+}
+
+.rememberForget a {
+    color: #0C9600;
+}
+
+
+.resetPswd {
+    width: 32rem;
+    text-align: right;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+form input {
+    background: #121212;
+    border: 1px solid #3E3E3E;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 32rem;
+    height: 3.5rem;
+}
+
+input[type=text] {
+    color: white;
+    margin-left: 5px;
+    padding-left: 1rem;
+}
+
+.rememberForgot {
+    width: 100%;
+    display: inline-block;
+}
+
+.registerBtn {
+    margin-top: 1.2rem;
+    width: 32rem;
+    height: 3.1rem;
+    border-radius: 5px;
+    border: 1px solid white;
+    color: white;
+    background-color: transparent;
+    font-size: 1.4rem;
+    font-weight: 200;
+}

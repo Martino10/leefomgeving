@@ -6,10 +6,10 @@
         </div>
         <img src="/img/background1.svg" alt="Background vector"/>
         <div class="login">
-            <!-- <router-link to="/login"> -->
+            <router-link to="/login">
             <button class="loginBtn">Inloggen</button>
-            <!-- </router-link> -->
-            <p>Nog geen account? <a href="/register.html">Maak een account aan</a></p>
+            </router-link>
+            <p>Nog geen account? <a href="/Login.html">Maak een account aan</a></p>
         </div>
     </div>
 </template>
@@ -17,16 +17,13 @@
 <script>
 
 export default {
-  data() {
-    return {
-        data: {
-        }
+  mounted() {
+        console.log('Component mounted.')
     }
-  },
 }
 </script>
 
-<style>
+<style scoped>
 .container {
     position: fixed;
     display: flex;

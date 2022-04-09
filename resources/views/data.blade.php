@@ -152,7 +152,7 @@ main{
             </div>
             <div class="datagrid">
                 <article class="datacard">
-                    <img src="/img/Zuurstof.svg" alt="Zuurstof" />
+                    <img src="/img/Licht.svg" alt="Licht" />
                     <p class="datalabel">Licht</p>
                     <p class="datavalue">{{ $row->ldr }}</p>
                 </article>

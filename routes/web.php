@@ -13,8 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+Route::middleware(['auth'])->group(function () {
+    // Routes waar je ingelogd voor moet zijn
+});
 
-Route::get('/{any}', function () {
+Route::get('/', function () {
     return view('welcome');
-})->where('any', '.*');
+});
+
+Route::get('/data', [\App\Http\Controllers\DataController::class, 'index'])->name('data');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

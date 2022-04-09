@@ -31,7 +31,7 @@
     </head>
     <body>
         <div id="app">
-            <home></home>
+            <home></dashboard>
             <router-view><router-view>
         </div>
         <script defer src="{{ asset('js/app.js') }}"></script>

@@ -55,6 +55,7 @@ body{
     border-radius: 2px;
     min-width: 7vw;
     box-shadow: 0rem 0rem 0.5rem #1BE70A;
+    position: relative;
 }
 
 .dropdown > .username {
@@ -70,10 +71,32 @@ body{
     transform: scale(0.7)
 }
 
+.dropdownlist {
+  max-height: 300px;
+  position: absolute;
+  top: 150%;
+  background-color: #1BE70A;
+  min-width: 100%;
+  overflow: hidden;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+
+.dropdownlist a{
+  display: block;
+  text-align: left;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.dropdownlistHide{
+    max-height: 0px;
+}
+
 .utilbar{
     padding: 0 5%;
     display: flex;
-    width: 90%;
+    width: 100%;
     position: sticky;
     position: -webkit-sticky;
     top: 0;
@@ -128,9 +151,10 @@ main{
 .datagrid{
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     grid-column-gap: 0.5rem;
+    margin-left: auto;
 }
 
 .datacard{
@@ -156,6 +180,17 @@ main{
     height: 2rem;
 }
 </style>
+<script>
+    function openDropdown() {
+        let dropdownlist = document.getElementById("js--dropdownlist");
+
+        if (dropdownlist.classList.contains("dropdownlistHide")) {
+            dropdownlist.classList.remove("dropdownlistHide");
+        } else {
+            dropdownlist.classList.add("dropdownlistHide");
+        }
+    }
+</script>
 <body>
     <div class="titlebar">
       <h2>VisiRoom</h2>
@@ -164,6 +199,11 @@ main{
         <p class="username">{{ Auth::user()->name }}</p>
         <img src="/img/Person-Icon.svg" alt="Person Icon" />
         <i class="gg-chevron-down"></i>
+        <div id="js--dropdownlist" class="dropdownlist dropdownlistHide">
+          <a href="">Uitloggen</a>
+          <a href="">nogiets</a>
+          <a href="">nogiets</a>
+        </div>
       </button>
     </div>
     <div class="utilbar">
@@ -175,7 +215,7 @@ main{
         <article class="roomcard">
             <div class="roominfo">
                 <p class="onlineinfo">Online</p>
-                <p class="roomname">Room-name</p>
+                <p class="roomname">{{ $row->naam }}</p>
             </div>
             <div class="datagrid">
                 <article class="datacard">

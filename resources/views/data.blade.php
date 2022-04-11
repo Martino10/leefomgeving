@@ -18,7 +18,7 @@ body{
 }
 
 .titlebar{
-    padding: 2rem 5%;
+    padding: 1.5rem 5%;
     display: flex;
     width: 100%;
     position: sticky;
@@ -26,6 +26,8 @@ body{
     top: 0;
     background-color: black;
     z-index: 1;
+    border-bottom: 1px solid #1BE70A;
+    margin-bottom: 1rem;
 }
 
 .titlebar *{
@@ -44,9 +46,28 @@ body{
     margin-left: 1rem;
 }
 
-.titlebar img{
+.titlebar > .dropdown {
     margin-left: auto;
-    height: 1.5rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    column-gap: 0.3rem;
+    border: 1px solid #1BE70A;
+    border-radius: 2px;
+    min-width: 7vw;
+    box-shadow: 0rem 0rem 0.5rem #1BE70A;
+}
+
+.dropdown > .username {
+    margin-left: 0.5rem;
+}
+
+.dropdown img {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.dropdown i {
+    transform: scale(0.7)
 }
 
 .utilbar{
@@ -139,7 +160,11 @@ main{
     <div class="titlebar">
       <h2>VisiRoom</h2>
       <p>Dashboard</p>
-      <img src="/img/Person-Icon.svg" alt="Person Icon" />
+      <button class="dropdown" onclick="openDropdown()">
+        <p class="username">{{ Auth::user()->name }}</p>
+        <img src="/img/Person-Icon.svg" alt="Person Icon" />
+        <i class="gg-chevron-down"></i>
+      </button>
     </div>
     <div class="utilbar">
       <p>Apparaten</p>
@@ -162,11 +187,6 @@ main{
                     <img src="/img/Temperatuur.svg" alt="Temperatuur" />
                     <p class="datalabel">Temperatuur</p>
                     <p class="datavalue">{{ $row->temperatuur }}°C</p>
-                </article>
-                <article class="datacard">
-                    <img src="/img/Gas.svg" alt="Gas" />
-                    <p class="datalabel">Gas</p>
-                    <p class="datavalue">{{ $row->gas }} PPM</p>
                 </article>
                 <article class="datacard">
                     <img src="/img/Gas.svg" alt="Gas" />

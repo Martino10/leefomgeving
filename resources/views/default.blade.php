@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/app.css" >
     <script src="/js/main.js" defer></script>
     <script src="/js/app.js" defer></script>
+    <link href='https://css.gg/chevron-down.css' rel='stylesheet'>
     <title>@yield('title')</title>
 </head>
 <body>

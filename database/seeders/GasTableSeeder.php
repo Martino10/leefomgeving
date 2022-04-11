@@ -23,5 +23,10 @@ class GasTableSeeder extends Seeder
             'location_id' => 1,
             'value' => 412,
         ]);
+
+        DB::table('gas')->insert([
+            'location_id' => 2,
+            'value' => 400,
+        ]);
     }
 }

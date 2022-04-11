@@ -15,7 +15,8 @@ class DataController extends Controller
         INNER JOIN gas ON l.id = gas.location_id 
         INNER JOIN luchtvochtigheid ON l.id = luchtvochtigheid.location_id 
         INNER JOIN geluid ON l.id = geluid.location_id 
-        INNER JOIN ldr ON l.id = ldr.location_id 
+        INNER JOIN ldr ON l.id = ldr.location_id
+        WHERE ldr.id = temperatuur.id AND ldr.id = gas.id AND ldr.id = luchtvochtigheid.id AND ldr.id = geluid.id
         ORDER BY ldr.gemeten_op;";
 
         // kolommen: id | naam | plaats | adres | ldr | temperatuur | gas | luchtvochtigheid | geluid | gemeten_op

@@ -24,5 +24,10 @@ class GeluidTableSeeder extends Seeder
             'location_id' => 1,
             'value' => "ja",
         ]);
+
+        DB::table('geluid')->insert([
+            'location_id' => 2,
+            'value' => "nee",
+        ]);
     }
 }

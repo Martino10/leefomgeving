@@ -147,7 +147,7 @@ main{
     color: #1BE70A;
 }
 
-.roomname{
+.roomname, .time{
     font-size: 10px;
     margin-top: 1rem;
 }
@@ -221,6 +221,7 @@ main{
             <div class="roominfo">
                 <p class="onlineinfo">Online</p>
                 <p class="roomname">{{ $row->naam }}</p>
+                <p class="time">{{ date('d-m-Y H:i', strtotime( $row->gemeten_op )) }}</p>
             </div>
             <div class="datagrid">
                 <article class="datacard">
@@ -254,7 +255,7 @@ main{
     </main>
 </body>
 <!-- Tabel om data te testen -->
-<table class="data_table">
+<!-- <table class="data_table">
     <tr>
         <th>locatie_id</th>
         <th>naam</th>
@@ -282,5 +283,5 @@ main{
     </tr>
     @endforeach
 
-</table>
+</table> -->
 @endsection('content')

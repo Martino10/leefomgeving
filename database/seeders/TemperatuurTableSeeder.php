@@ -23,5 +23,10 @@ class TemperatuurTableSeeder extends Seeder
             'location_id' => 1,
             'value' => 20,
         ]);
+
+        DB::table('temperatuur')->insert([
+            'location_id' => 2,
+            'value' => 15,
+        ]);
     }
 }

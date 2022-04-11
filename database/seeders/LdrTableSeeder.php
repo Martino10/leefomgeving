@@ -23,5 +23,10 @@ class LdrTableSeeder extends Seeder
             'location_id' => 1,
             'value' => 420,
         ]);
+
+        DB::table('ldr')->insert([
+            'location_id' => 2,
+            'value' => 340,
+        ]);
     }
 }

@@ -23,5 +23,10 @@ class LuchtvochtigheidTableSeeder extends Seeder
             'location_id' => 1,
             'value' => 232,
         ]);
+
+        DB::table('luchtvochtigheid')->insert([
+            'location_id' => 2,
+            'value' => 200,
+        ]);
     }
 }

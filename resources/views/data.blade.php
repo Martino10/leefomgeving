@@ -87,6 +87,8 @@ body{
   text-align: left;
   padding: 5px;
   text-decoration: none;
+  border: 1px solid #1f861f;
+  border-radius: 2px;
 }
 
 .dropdownlistHide{
@@ -112,6 +114,7 @@ body{
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     margin-left: auto;
+    display: flex;
 }
 
 .utilbar button img{
@@ -136,10 +139,11 @@ main{
 
 .roominfo{
     width: 5rem;
+    margin-right: 5px;
 }
 
 .onlineinfo{
-    font-size: 8px;
+    font-size: 10px;
     color: #1BE70A;
 }
 
@@ -169,7 +173,7 @@ main{
 }
 
 .datalabel{
-    font-size: 7px;
+    font-size: 9px;
 }
 
 .datavalue{
@@ -177,7 +181,8 @@ main{
 }
 
 .datacard img{
-    height: 2rem;
+    height: 1.8rem;
+    width: auto;
 }
 </style>
 <script>
@@ -200,7 +205,7 @@ main{
         <img src="/img/Person-Icon.svg" alt="Person Icon" />
         <i class="gg-chevron-down"></i>
         <div id="js--dropdownlist" class="dropdownlist dropdownlistHide">
-          <a href="">Uitloggen</a>
+          <a href="/logout">Uitloggen</a>
           <a href="">nogiets</a>
           <a href="">nogiets</a>
         </div>

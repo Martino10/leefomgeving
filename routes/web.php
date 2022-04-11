@@ -18,15 +18,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/logout', '\App\Http\Controllers\LogoutController@perform')->name('logout.perform');
 });
 
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/data', [\App\Http\Controllers\DataController::class, 'index'])->name('data');
-
-
 
 Route::get('/data', [\App\Http\Controllers\DataController::class, 'index'])->name('data');
 

@@ -20,10 +20,12 @@ body{
 .titlebar{
     padding: 2rem 5%;
     display: flex;
-    width: 90%;
+    width: 100%;
     position: sticky;
     position: -webkit-sticky;
     top: 0;
+    background-color: black;
+    z-index: 1;
 }
 
 .titlebar *{
@@ -135,7 +137,7 @@ main{
 </style>
 <body>
     <div class="titlebar">
-      <h2>IPMEDT5</h2>
+      <h2>VisiRoom</h2>
       <p>Dashboard</p>
       <img src="/img/Person-Icon.svg" alt="Person Icon" />
     </div>

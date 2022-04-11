@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             GasTableSeeder::class,
             LdrTableSeeder::class,
             LocationsTableSeeder::class,
+            UsersTableSeeder::class,
         ]);
     }
 }

@@ -100,7 +100,7 @@
     <body>
     <div class="container">
         <div class="title">
-            <h1>IPMEDT5</h1>
+            <h1>VisiRoom</h1>
             <h2>Quality of tomorrow</h2>
         </div>
         <img src="/img/background1.svg" alt="Background vector"/>

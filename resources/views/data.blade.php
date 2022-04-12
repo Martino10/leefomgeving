@@ -240,7 +240,7 @@ main{
     </div>
     <div class="utilbar">
       <p>Apparaten</p>
-      <button><img src="/img/Plus.svg" alt="Plus" />Apparaat Toevoegen</button>
+      <button>+ Apparaat Toevoegen</button>
     </div>
     <main>
         @foreach($data as $row)

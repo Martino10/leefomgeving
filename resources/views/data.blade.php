@@ -211,16 +211,16 @@ main{
             let value = parseFloat(valueElements[i].textContent);
 
             if (value >= valueElements[i].dataset.max){
-                // maak svg rood datacards[i].childNodes[0]
+                valueElements[i].style.color = 'red'
                 console.log(value + "is te hoog")
             } else if (valueElements[i].textContent == "ja"){
-                // maak svg rood datacards[i].childNodes[0]
+                valueElements[i].style.color = 'red'
                 console.log("er is geluidsoverlast")
             } else if (value <= valueElements[i].dataset.min){
-                // maak svg rood datacards[i].childNodes[0]
+                valueElements[i].style.color = 'red'
                 console.log(value + "is te laag")
             } else {
-                // maak svg groen datacards[i].childNodes[0]
+                valueElements[i].style.color = '#02A112'
             }
         }
     }

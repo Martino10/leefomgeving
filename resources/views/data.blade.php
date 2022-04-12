@@ -72,7 +72,7 @@ body{
 }
 
 .dropdownlist {
-  max-height: 300px;
+  max-height: 50px;
   position: absolute;
   top: 150%;
   background-color: #1BE70A;
@@ -190,6 +190,7 @@ main{
 }
 </style>
 <script>
+    // dropdown
     function openDropdown() {
         let dropdownlist = document.getElementById("js--dropdownlist");
 
@@ -197,6 +198,30 @@ main{
             dropdownlist.classList.remove("dropdownlistHide");
         } else {
             dropdownlist.classList.add("dropdownlistHide");
+        }
+    }
+
+    window.onload = () => {
+
+        // data svg colors
+        const valueElements = document.getElementsByClassName("datavalue");
+        const datacards = document.getElementsByClassName("datacard");
+
+        for(let i = 0; i < datacards.length; i++){
+            let value = parseFloat(valueElements[i].textContent);
+
+            if (value >= valueElements[i].dataset.max){
+                // maak svg rood datacards[i].childNodes[0]
+                console.log(value + "is te hoog")
+            } else if (valueElements[i].textContent == "ja"){
+                // maak svg rood datacards[i].childNodes[0]
+                console.log("er is geluidsoverlast")
+            } else if (value <= valueElements[i].dataset.min){
+                // maak svg rood datacards[i].childNodes[0]
+                console.log(value + "is te laag")
+            } else {
+                // maak svg groen datacards[i].childNodes[0]
+            }
         }
     }
 </script>
@@ -210,8 +235,6 @@ main{
         <i class="gg-chevron-down"></i>
         <div id="js--dropdownlist" class="dropdownlist dropdownlistHide">
           <a href="/logout">Uitloggen</a>
-          <a href="">nogiets</a>
-          <a href="">nogiets</a>
         </div>
       </button>
     </div>
@@ -242,7 +265,7 @@ main{
                     <article class="datacard">
                         <img src="/img/Gas.svg" alt="Gas" />
                         <p class="datalabel">Gas</p>
-                        <p class="datavalue">{{ $row->gas }} PPM</p>
+                        <p class="datavalue" data-max="5000">{{ $row->gas }} PPM</p>
                     </article>
                     <article class="datacard">
                         <img src="/img/Luchtvocht.svg" alt="Luchtvocht" />

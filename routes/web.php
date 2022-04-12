@@ -19,12 +19,14 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
     Route::get('/logout', '\App\Http\Controllers\LogoutController@perform')->name('logout.perform');
+    Route::get('/data', [\App\Http\Controllers\DataController::class, 'index'])->name('data');
+    Route::get('/data/{location_name}', [\App\Http\Controllers\DataController::class, 'detaildata'])->name('detaildata');
 });
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/data', [\App\Http\Controllers\DataController::class, 'index'])->name('data');
+
 
 require __DIR__.'/auth.php';

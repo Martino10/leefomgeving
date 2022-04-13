@@ -1,6 +1,6 @@
 @extends('default')
 @section('title')   
-    Data
+    Dashboard
 @endsection('title')
 
 @section('content')
@@ -65,6 +65,8 @@ body{
 .dropdown img {
     margin-top: auto;
     margin-bottom: auto;
+    height: auto;
+    width: 0.7rem;
 }
 
 .dropdown i {

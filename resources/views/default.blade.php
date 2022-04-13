@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="/css/app.css" >
     <script src="/js/main.js" defer></script>
     <script src="/js/app.js" defer></script>
+    
     <link href='https://css.gg/chevron-down.css' rel='stylesheet'>
+    <link rel="icon" href="{{ url('/img/logo.svg') }}">
     <title>@yield('title')</title>
 </head>
 <body>
     @yield('content')
 </body>
-</html>
+</html> 

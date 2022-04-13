@@ -159,7 +159,7 @@ main{
 .datagrid{
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     grid-column-gap: 0.5rem;
     margin-left: auto;
@@ -176,6 +176,41 @@ main{
     margin: 0 auto;
 }
 
+.qualityscore {
+    border: 2px solid rgb(var(--r), var(--g), var(--b));
+    border-radius: 50%;
+    height: 82%;
+    width: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --r: 255;
+    --g: 255;
+    --b: 255;
+    box-shadow: 0rem 0rem 0.5rem rgba(var(--r), var(--g), var(--b), 0.5);
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0.2rem rgba(var(--r), var(--g), var(--b), 0.4);
+	}
+
+	70% {
+		box-shadow: 0 0 0 0.5rem rgba(var(--r), var(--g), var(--b), 0);
+	}
+
+	100% {
+		box-shadow: 0 0 0 0.2rem rgba(var(--r), var(--g), var(--b), 0);
+	}
+}
+
+.qualityscore__number {
+    text-align: center;
+}
+
 .datalabel{
     font-size: 9px;
 }
@@ -188,6 +223,17 @@ main{
     height: 1.8rem;
     width: auto;
 }
+
+.datalabel_licht {
+    font-size: 9px;
+    margin-top: 0.8rem;
+}
+
+.datacard .lichtimg{
+    height: 1rem;
+    width: auto;
+}
+
 </style>
 <script>
     // dropdown
@@ -227,7 +273,9 @@ main{
 </script>
 <body>
     <div class="titlebar">
-      <h2>VisiRoom</h2>
+      <a href="/data">
+        <h2>VisiRoom</h2>
+      </a>
       <p>Dashboard</p>
       <button class="dropdown" onclick="openDropdown()">
         <p class="username">{{ Auth::user()->name }}</p>
@@ -252,29 +300,32 @@ main{
                     <p class="time">{{ date('d-m-Y H:i', strtotime( $row->gemeten_op )) }}</p>
                 </div>
                 <div class="datagrid">
-                    <article class="datacard">
-                        <img src="/img/Licht.svg" alt="Licht" />
-                        <p class="datalabel">Licht</p>
+                    <article class="qualityscore">
+                        <p class="qualityscore__number"> {{ $row->qualityscore }}</p>
+                    </article>
+                    <article class="datacard datacard_licht">
+                        <img class="lichtimg" src="/img/Licht.svg" alt="Licht" />
+                        <p class="datalabel datalabel_licht">Licht</p>
                         <p class="datavalue">{{ $row->ldr }}</p>
                     </article>
-                    <article class="datacard">
+                    <article class="datacard datacard_temp">
                         <img src="/img/Temperatuur.svg" alt="Temperatuur" />
                         <p class="datalabel">Temperatuur</p>
                         <p class="datavalue">{{ $row->temperatuur }}°C</p>
                     </article>
-                    <article class="datacard">
+                    <article class="datacard datacard_gas">
                         <img src="/img/Gas.svg" alt="Gas" />
                         <p class="datalabel">Gas</p>
                         <p class="datavalue" data-max="5000">{{ $row->gas }} PPM</p>
                     </article>
-                    <article class="datacard">
+                    <article class="datacard datacard_luchtvocht">
                         <img src="/img/Luchtvocht.svg" alt="Luchtvocht" />
                         <p class="datalabel">Luchtvocht</p>
-                        <p class="datavalue">{{ $row->luchtvochtigheid }}</p>
+                        <p class="datavalue">{{ $row->luchtvochtigheid }}%</p>
                     </article>
-                    <article class="datacard">
+                    <article class="datacard datacard_geluid">
                         <img src="/img/Geluid.svg" alt="Geluid" />
-                        <p class="datalabel">Geluid overlast</p>
+                        <p class="datalabel">Geluidsoverlast</p>
                         <p class="datavalue">{{ $row->geluid }}</p>
                     </article>
                 </div>

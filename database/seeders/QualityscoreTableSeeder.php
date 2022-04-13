@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use DB;
 
-class GeluidTableSeeder extends Seeder
+class QualityscoreTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,20 +14,19 @@ class GeluidTableSeeder extends Seeder
      */
     public function run()
     {
-        
-        DB::table('geluid')->insert([
+        DB::table('qualityscore')->insert([
             'location_id' => 1,
-            'value' => "Nee",
+            'value' => 90,
         ]);
 
-        DB::table('geluid')->insert([
+        DB::table('qualityscore')->insert([
             'location_id' => 1,
-            'value' => "Ja",
+            'value' => 77,
         ]);
 
-        DB::table('geluid')->insert([
+        DB::table('qualityscore')->insert([
             'location_id' => 2,
-            'value' => "Nee",
+            'value' => 59,
         ]);
     }
 }

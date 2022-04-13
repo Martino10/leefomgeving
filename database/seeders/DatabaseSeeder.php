@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             LuchtvochtigheidTableSeeder::class,
             GasTableSeeder::class,
             LdrTableSeeder::class,
+            QualityscoreTableSeeder::class,
             LocationsTableSeeder::class,
             UsersTableSeeder::class,
         ]);

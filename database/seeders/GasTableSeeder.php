@@ -16,7 +16,7 @@ class GasTableSeeder extends Seeder
     {
         DB::table('gas')->insert([
             'location_id' => 1,
-            'value' => 312,
+            'value' => 1012,
         ]);
 
         DB::table('gas')->insert([

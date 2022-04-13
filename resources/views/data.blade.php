@@ -1,6 +1,6 @@
 @extends('default')
 @section('title')   
-    Data
+    Dashboard
 @endsection('title')
 
 @section('content')

@@ -144,7 +144,7 @@ main{
 }
 
 .roominfo{
-    width: 5rem;
+    min-width: 10vw;
     margin-right: 5px;
 }
 
@@ -153,9 +153,15 @@ main{
     color: #1BE70A;
 }
 
-.roomname, .time{
+.time{
     font-size: 10px;
     margin-top: 1rem;
+}
+
+.roomname {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 0.5rem;
 }
 
 .datagrid{
@@ -163,7 +169,7 @@ main{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
-    grid-column-gap: 0.5rem;
+    grid-column-gap: 0.7rem;
     margin-left: auto;
 }
 
@@ -172,6 +178,13 @@ main{
     border-radius: 0.5rem;
     padding: 0.5rem 0;
     text-align: center;
+    width: 4rem; 
+}
+
+.datacard:hover {
+    border: 0.1px solid green;
+    transform: scale(1.02);
+    z-index: 1;
 }
 
 .datacard *{
@@ -182,7 +195,7 @@ main{
     border: 2px solid rgb(var(--r), var(--g), var(--b));
     border-radius: 50%;
     height: 82%;
-    width: auto;
+    width: 100%;
     margin-top: auto;
     margin-bottom: auto;
     display: flex;
@@ -327,7 +340,7 @@ main{
                     </article>
                     <article class="datacard datacard_geluid">
                         <img src="/img/Geluid.svg" alt="Geluid" />
-                        <p class="datalabel">Geluidsoverlast</p>
+                        <p class="datalabel">Geluidsverlast</p>
                         <p class="datavalue">{{ $row->geluid }}</p>
                     </article>
                 </div>

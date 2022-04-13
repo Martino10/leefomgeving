@@ -1,6 +1,6 @@
 window.onload = () => {
 
-    // Veranderd kleuren op basis van elementen en scores
+    // Verandert kleuren op basis van elementen en scores
 
     //Score
     var score = document.getElementsByClassName('qualityscore');

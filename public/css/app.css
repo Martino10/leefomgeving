@@ -748,7 +748,6 @@ select {
 }
 .h-logo {
   height: 9rem;
-  margin-top: 5rem;
   margin-bottom: -2rem;
 }
 .w-5 {
@@ -907,6 +906,9 @@ select {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-green {
+  background-color: #0C9C00;
 }
 .bg-gray-100 {
   --tw-bg-opacity: 1;
@@ -1080,7 +1082,7 @@ select {
 }
 .text-indigo-600 {
   --tw-text-opacity: 1;
-  color: rgb(79 70 229 / var(--tw-text-opacity));
+  color: rgb(12 156 0 / var(--tw-text-opacity));
 }
 .text-red-600 {
   --tw-text-opacity: 1;

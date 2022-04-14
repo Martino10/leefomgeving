@@ -49,7 +49,7 @@ window.onload = () => {
             }
             switch (datafield) {
                 case 'licht':
-                    var score = 100 - (Math.abs(waarde - 700) / 10);
+                    var score = 100 - (Math.abs((waarde - 50) * 2));
                     break;
                 case 'temp':
                     var score = 100 - (Math.abs((waarde - 20) * 7));

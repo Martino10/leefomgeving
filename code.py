@@ -46,7 +46,7 @@ while True:
         tempscore = 100 - (abs((int(sqltemp) - 20) * 7))
         humidscore = 100 - (abs(int(sqlhumid) - 45) * 2)
         soundscore = abs(int(sqlsound) * 100 - 100)
-        lightscore = 100 - int(ldrValue) * 10
+        lightscore = 100 - (abs(int(ldrValue) - 50) * 2)
         scores = [gasscore, tempscore, humidscore, soundscore, lightscore]
 
         sqlscore = sum(scores) / len(scores)

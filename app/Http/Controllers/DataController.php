@@ -26,12 +26,13 @@ class DataController extends Controller
         // zorgt ervoor dat er maar één meting per locatie wordt getoond
         $id_array = array();
         for ($x = 0; $x < count($data); $x++) {
-            if (in_array($data[$x]->id, $id_array)) {
-                unset($data[$x]);
+            for ($y = 0; $y < count($id_array); $y++) {
+                if ($data[$x]->id = $id_array[$y]) {
+                    unset($data[$x]);
+                    break;
+                }
             }
-            else {
-                array_push($id_array, $data[$x]->id);
-            }
+            array_push($id_array, $data[$x]->id);
         }
         return view('data', ['data' => $data]);
     }

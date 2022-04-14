@@ -54,7 +54,7 @@ while True:
         location_id = 1
 
         sql = """INSERT INTO gas (value, location_id) VALUES (%s, %s)""" #namen van 
-        mycursor.execute(sql, (sqlgas, location_id,)) #execute de sql statement met data uit lijst. %s is waarde van sqlgas.
+        mycursor.execute(sql, (sqlgas, location_id,)) #execute de sql statement met data uit lijst. %s is waarde van sqlgas en location_id.
 
         sql = """INSERT INTO temperatuur (value, location_id) VALUES (%s, %s)"""
         mycursor.execute(sql, (sqltemp, location_id,))

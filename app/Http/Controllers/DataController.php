@@ -20,7 +20,7 @@ class DataController extends Controller
         WHERE ldr.id = temperatuur.id AND ldr.id = gas.id AND ldr.id = luchtvochtigheid.id AND ldr.id = geluid.id AND ldr.id = qualityscore.id
         ORDER BY ldr.gemeten_op;";
 
-        // kolommen: id | naam | plaats | adres | ldr | temperatuur | gas | luchtvochtigheid | geluid | gemeten_op
+        // kolommen: id | naam | plaats | adres | ldr | temperatuur | gas | luchtvochtigheid | geluid | qualityscore | gemeten_op
         $data = DB::select($dataquery);
 
         // zorgt ervoor dat er maar één meting per locatie wordt getoond
@@ -51,7 +51,8 @@ class DataController extends Controller
 
         $locationdata = DB::select($locationdataquery);
         $location = DB::table('locations')->where('naam', '=', $location_name)->first();
+        $summary = $locationdata[0];
 
-        return view('detaildata', ['data' => $locationdata, 'location' => $location]);
+        return view('detaildata', ['data' => $locationdata, 'location' => $location, 'summary' => $summary]);
     }
 }

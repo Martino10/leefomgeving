@@ -4,7 +4,6 @@
 @endsection('title')
 
 @section('content')
-<!-- Dashboard design met test data -->
 <style>
 *{
     margin: 0;
@@ -110,24 +109,54 @@ main{
     grid-row-gap: 1rem;
 }
 
-.roomcard{
+.roomcard, .detailcard{
     background: #161616;
     height: fit-content;
-    display: flex;
     border-radius: 1rem;
     padding: 1rem;
 }
 
+.detailcard {
+    margin-top: 1rem;
+    position: relative;
+}
+
+.detailcard_title {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 1rem;
+}
+
+.detailcard_table {
+    margin: 0 auto;
+}
+
+th {
+    border-bottom: 2px solid #1BE70A !important;
+    border: none;
+    text-align: left;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+}
+td {
+    border-bottom: 1px solid #1BE70A !important;
+    border: none;
+    padding: 0.5rem;
+}
+
 .roominfo{
     width: 5rem;
-    margin-right: 5px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    width: 100%;
 }
 
 .qualityscore {
     border: 2px solid rgb(var(--r), var(--g), var(--b));
     border-radius: 50%;
-    height: 82%;
-    width: auto;
+    width: 5vw;
+    height: 5vw;
     margin-top: auto;
     margin-bottom: auto;
     display: flex;
@@ -138,6 +167,13 @@ main{
     --b: 255;
     box-shadow: 0rem 0rem 0.5rem rgba(var(--r), var(--g), var(--b), 0.5);
 	animation: pulse 2s infinite;
+    position: relative;
+}
+
+.qualityscore_detail {
+    position: absolute !important;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 @keyframes pulse {
@@ -155,7 +191,11 @@ main{
 }
 
 .qualityscore__number {
-    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0;
 }
 
 .onlineinfo{
@@ -163,9 +203,15 @@ main{
     color: #1BE70A;
 }
 
-.roomname, .time{
+.roomname {
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.time {
     font-size: 10px;
-    margin-top: 1rem;
+    text-align: right;
 }
 
 .datagrid{
@@ -174,7 +220,9 @@ main{
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     grid-column-gap: 0.5rem;
-    margin-left: auto;
+    margin: 0 auto;
+    margin-top: 2rem;
+    width: 60%;
 }
 
 .datacard{
@@ -265,81 +313,118 @@ main{
     <p class="datainfo">[DATA INFORMATIE] (wat is te hoog, wat is te laag, wat kun je eraan doen) Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt nesciunt eius harum dignissimos, cum tempore commodi dicta magni alias at a reiciendis? Ipsa officia illum quis assumenda quidem id earum!</p>
     <!-- [GRAFIEKEN IPV ROOMCARDS] -->
     <main>
-        @foreach($data as $row)
-        <a href="/data/{{$row->naam}}">
+        <a href="/data/{{$location->naam}}">
             <article class="roomcard">
                 <div class="roominfo">
                     <p class="onlineinfo">Online</p>
-                    <p class="roomname">{{ $row->naam }}</p>
-                    <p class="time">{{ date('d-m-Y H:i', strtotime( $row->gemeten_op )) }}</p>
+                    <p class="roomname">Samenvatting {{ $summary->naam }}</p>
+                    <p class="time">Laatste meting: {{ date('d-m-Y H:i', strtotime( $summary->gemeten_op )) }}</p>
                 </div>
                 <div class="datagrid">
                     <article class="qualityscore">
-                        <p class="qualityscore__number"> {{ $row->qualityscore }}</p>
+                        <p class="qualityscore__number"> {{ $summary->qualityscore }}</p>
                     </article>
-                    <article class="datacard">
+                    <article class="datacard datacard_licht">
                         <img class="lichtimg" src="/img/Licht.svg" alt="Licht" />
-                        <p class="datalabel_licht">Licht</p>
-                        <p class="datavalue">{{ $row->ldr }}</p>
+                        <p class="datalabel datalabel_licht">Licht</p>
+                        <p class="datavalue">{{ $summary->ldr }}</p>
                     </article>
-                    <article class="datacard">
+                    <article class="datacard datacard_temp">
                         <img src="/img/Temperatuur.svg" alt="Temperatuur" />
                         <p class="datalabel">Temperatuur</p>
-                        <p class="datavalue">{{ $row->temperatuur }}°C</p>
+                        <p class="datavalue">{{ $summary->temperatuur }}°C</p>
                     </article>
-                    <article class="datacard">
+                    <article class="datacard datacard_gas">
                         <img src="/img/Gas.svg" alt="Gas" />
                         <p class="datalabel">Gas</p>
-                        <p class="datavalue" data-max="5000">{{ $row->gas }} PPM</p>
+                        <p class="datavalue" data-max="5000">{{ $summary->gas }} PPM</p>
                     </article>
-                    <article class="datacard">
+                    <article class="datacard datacard_luchtvocht">
                         <img src="/img/Luchtvocht.svg" alt="Luchtvocht" />
                         <p class="datalabel">Luchtvocht</p>
-                        <p class="datavalue">{{ $row->luchtvochtigheid }}</p>
+                        <p class="datavalue">{{ $summary->luchtvochtigheid }}</p>
                     </article>
-                    <article class="datacard">
+                    <article class="datacard datacard_geluid">
                         <img src="/img/Geluid.svg" alt="Geluid" />
                         <p class="datalabel">Geluid overlast</p>
-                        <p class="datavalue">{{ $row->geluid }}</p>
+                        <p class="datavalue">{{ $summary->geluid }}</p>
                     </article>
                 </div>
             </article>
         </a>
-        @endforeach
-        <img src="img/gasgraph.png">
-        <img src="img/tempgraph.png">
-        <img src="img/humidgraph.png">
-        <img src="img/lightgraph.png">
+        <article class="detailcard">
+            <h3 class="detailcard_title">Licht</h3>
+            <table class="detailcard_table">
+                <tr>
+                    <th>Helderheid (lux)</th>
+                    <th>gemeten op</th>
+                </tr>
+                @foreach($data as $row)
+                <tr>
+                    <td>{{ $row->ldr }}</td>
+                    <td>{{ date('d-m-Y H:i', strtotime( $row->gemeten_op )) }}</td>
+                </tr>
+                @endforeach
+            </table>
+            <div class="qualityscore qualityscore_detail">
+                <p class="lichtscore qualityscore__number"></p>
+            </div>
+        </article>
+        <article class="detailcard">
+            <h3 class="detailcard_title">Temperatuur</h3>
+            <table class="detailcard_table">
+                <tr>
+                    <th>Temperatuur (°C)</th>
+                    <th>gemeten op</th>
+                </tr>
+                @foreach($data as $row)
+                <tr>
+                    <td>{{ $row->temperatuur }}</td>
+                    <td>{{ date('d-m-Y H:i', strtotime( $row->gemeten_op )) }}</td>
+                </tr>
+                @endforeach
+            </table>
+            <div class="qualityscore qualityscore_detail">
+                <p class="temperatuurscore qualityscore__number"></p>
+            </div>
+        </article>
+        <article class="detailcard">
+            <h3 class="detailcard_title">Gas</h3>
+            <table class="detailcard_table">
+                <tr>
+                    <th>CO2 concentratie (ppm)</th>
+                    <th>gemeten op</th>
+                </tr>
+                @foreach($data as $row)
+                <tr>
+                    <td>{{ $row->gas }}</td>
+                    <td>{{ date('d-m-Y H:i', strtotime( $row->gemeten_op )) }}</td>
+                </tr>
+                @endforeach
+            </table>
+            <div class="qualityscore qualityscore_detail">
+                <p class="gasscore qualityscore__number"></p>
+            </div>
+        </article>
+        <article class="detailcard">
+            <h3 class="detailcard_title">Luchtvochtigheid</h3>
+            <table class="detailcard_table">
+                <tr>
+                    <th>Luchtvochtigheid (%)</th>
+                    <th>gemeten op</th>
+                </tr>
+                @foreach($data as $row)
+                <tr>
+                    <td>{{ $row->luchtvochtigheid }}</td>
+                    <td>{{ date('d-m-Y H:i', strtotime( $row->gemeten_op )) }}</td>
+                </tr>
+                @endforeach
+            </table>
+            <div class="qualityscore qualityscore_detail">
+                <p class="luchtvochtscore qualityscore__number"></p>
+            </div>
+        </article>
+        
     </main>
 </body>
-<!-- Tabel om data te testen -->
-<!-- <table class="data_table">
-    <tr>
-        <th>locatie_id</th>
-        <th>naam</th>
-        <th>plaats</th>
-        <th>adres</th>
-        <th>ldr</th>
-        <th>temperatuur</th>
-        <th>gas</th>
-        <th>luchtvochtigheid</th>
-        <th>geluidsoverlast</th>
-        <th>gemeten op</th>
-    </tr>
-    @foreach($data as $row)
-    <tr>
-        <td>{{ $row->id }}</td>
-        <td>{{ $row->naam }}</td>
-        <td>{{ $row->plaats }}</td>
-        <td>{{ $row->adres }}</td>
-        <td>{{ $row->ldr }}</td>
-        <td>{{ $row->temperatuur }}</td>
-        <td>{{ $row->gas }}</td>
-        <td>{{ $row->luchtvochtigheid }}</td>
-        <td>{{ $row->geluid }}</td>
-        <td>{{ $row->gemeten_op }}</td>
-    </tr>
-    @endforeach
-
-</table> -->
 @endsection('content')

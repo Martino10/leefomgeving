@@ -18,7 +18,7 @@ class DataController extends Controller
         INNER JOIN ldr ON l.id = ldr.location_id
         INNER JOIN qualityscore ON l.id = qualityscore.location_id
         WHERE ldr.id = temperatuur.id AND ldr.id = gas.id AND ldr.id = luchtvochtigheid.id AND ldr.id = geluid.id AND ldr.id = qualityscore.id
-        ORDER BY ldr.gemeten_op;";
+        ORDER BY ldr.gemeten_op desc";
 
         // kolommen: id | naam | plaats | adres | ldr | temperatuur | gas | luchtvochtigheid | geluid | qualityscore | gemeten_op
         $data = DB::select($dataquery);
@@ -46,7 +46,7 @@ class DataController extends Controller
         INNER JOIN ldr ON l.id = ldr.location_id
         INNER JOIN qualityscore ON l.id = qualityscore.location_id
         WHERE ldr.id = temperatuur.id AND ldr.id = gas.id AND ldr.id = luchtvochtigheid.id AND ldr.id = geluid.id AND ldr.id = qualityscore.id AND l.naam = '$location_name'
-        ORDER BY ldr.gemeten_op;";
+        ORDER BY ldr.gemeten_op desc limit 10";
 
         $locationdata = DB::select($locationdataquery);
         $location = DB::table('locations')->where('naam', '=', $location_name)->first();

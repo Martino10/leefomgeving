@@ -359,7 +359,7 @@ td {
                     <th>Helderheid (lux)</th>
                     <th>gemeten op</th>
                 </tr>
-                @foreach($data->slice(0, 10) as $row)
+                @foreach($data as $row)
                 <tr>
                     <td>{{ $row->ldr }}</td>
                     <td>{{ date('d-m-Y H:i', strtotime( $row->gemeten_op )) }}</td>
@@ -377,7 +377,7 @@ td {
                     <th>Temperatuur (°C)</th>
                     <th>gemeten op</th>
                 </tr>
-                @foreach($data->slice(0, 10) as $row)
+                @foreach($data as $row)
                 <tr>
                     <td>{{ $row->temperatuur }}</td>
                     <td>{{ date('d-m-Y H:i', strtotime( $row->gemeten_op )) }}</td>
@@ -395,7 +395,7 @@ td {
                     <th>CO2 concentratie (ppm)</th>
                     <th>gemeten op</th>
                 </tr>
-                @foreach($data->slice(0, 10) as $row)
+                @foreach($data as $row)
                 <tr>
                     <td>{{ $row->gas }}</td>
                     <td>{{ date('d-m-Y H:i', strtotime( $row->gemeten_op )) }}</td>
@@ -413,7 +413,7 @@ td {
                     <th>Luchtvochtigheid (%)</th>
                     <th>gemeten op</th>
                 </tr>
-                @foreach($data->slice(0, 10) as $row)
+                @foreach($data as $row)
                 <tr>
                     <td>{{ $row->luchtvochtigheid }}</td>
                     <td>{{ date('d-m-Y H:i', strtotime( $row->gemeten_op )) }}</td>

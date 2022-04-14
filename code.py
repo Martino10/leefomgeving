@@ -51,31 +51,25 @@ while True:
 
         sqlscore = sum(scores) / len(scores)
 
-        location = 1
+        location_id = 1
 
-        sql = """INSERT INTO gas (location_id) VALUES (location)"""
-        sql = """INSERT INTO gas (value) VALUES (%s)""" #namen van 
-        mycursor.execute(sql, (sqlgas,)) #execute de sql statement met data uit lijst. %s is waarde van sqlgas.
+        sql = """INSERT INTO gas (value, location_id) VALUES (%s, %s)""" #namen van 
+        mycursor.execute(sql, (sqlgas, location_id,)) #execute de sql statement met data uit lijst. %s is waarde van sqlgas.
 
-        sql = """INSERT INTO temperatuur (location_id) VALUES (location)"""
-        sql = """INSERT INTO temperatuur (value) VALUES (%s)"""
-        mycursor.execute(sql, (sqltemp,))
+        sql = """INSERT INTO temperatuur (value, location_id) VALUES (%s, %s)"""
+        mycursor.execute(sql, (sqltemp, location_id,))
 
-        sql = """INSERT INTO luchtvochtigheid (location_id) VALUES (location)"""
-        sql = """INSERT INTO luchtvochtigheid (value) VALUES (%s)"""
-        mycursor.execute(sql, (sqlhumid,))
+        sql = """INSERT INTO luchtvochtigheid (value, location_id) VALUES (%s, %s)"""
+        mycursor.execute(sql, (sqlhumid, location_id,))
 
-        sql = """INSERT INTO geluid (location_id) VALUES (location)"""
-        sql = """INSERT INTO geluid (value) VALUES (%s)"""
-        mycursor.execute(sql, (geluidsoverlast,))
+        sql = """INSERT INTO geluid (value, location_id) VALUES (%s, %s)"""
+        mycursor.execute(sql, (geluidsoverlast, location_id,))
 
-        sql = """INSERT INTO ldr (location_id) VALUES (location)"""
-        sql = """INSERT INTO ldr (value) VALUES (%s)"""
-        mycursor.execute(sql, (ldrValue,))
+        sql = """INSERT INTO ldr (value, location_id) VALUES (%s, %s)"""
+        mycursor.execute(sql, (ldrValue, location_id,))
 
-        sql = """INSERT INTO qualityscore (location_id) VALUES (location)"""
-        sql = """INSERT INTO qualityscore (value) VALUES (%s)"""
-        mycursor.execute(sql, (sqlscore,))
+        sql = """INSERT INTO qualityscore (value, location_id) VALUES (%s, %s)"""
+        mycursor.execute(sql, (sqlscore, location_id,))
         mydb.commit()
         #tabelaanpassingen zijn altijd nog mogelijk
 

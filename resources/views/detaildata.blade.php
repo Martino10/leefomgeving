@@ -306,6 +306,10 @@ main{
             </article>
         </a>
         @endforeach
+        <img src="img/gasgraph.png">
+        <img src="img/tempgraph.png">
+        <img src="img/humidgraph.png">
+        <img src="img/lightgraph.png">
     </main>
 </body>
 <!-- Tabel om data te testen -->

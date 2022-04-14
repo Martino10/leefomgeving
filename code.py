@@ -1,5 +1,8 @@
 import mysql.connector
 import serial
+from datetime import datetime
+from matplotlib import pyplot as plt
+import matplotlib
 
 port = serial.Serial("/dev/ttyUSB0", baudrate=9600, timeout=3.0)
 
@@ -9,6 +12,12 @@ mydb = mysql.connector.connect(
     passwd="passwd",
     database="leefomgeving"
 )
+
+times = []
+gasvalues = []
+tempvalues = []
+humidvalues = []
+lightvalues = []
 
 while True:
     if port.readline() != "":
@@ -48,3 +57,44 @@ while True:
         mycursor.execute(sql, (sqlscore,))
         
         #tabelaanpassingen zijn altijd nog mogelijk
+
+        # ---------------
+        # grafieken maken
+        
+        datetime = datetime.now() # haalt datum en tijd op
+        date = datetime.strftime('%d-%m-%Y')
+        time = datetime.strftime('%H:%M')
+        times.append(time)
+        time_objects = [datetime.datetime.strptime(t, "%H:%M") for t in times]
+
+        # gas
+        gasvalues.append(sqlgas)
+        plt.plot(time_objects, gasvalues)
+        plt.xlabel('time (HH:MM)')
+        plt.ylabel('CO2 (ppm)')
+        plt.title('Gas')
+        plt.savefig('public/img/gasgraph.png', bbox_inches='tight')
+
+        # temperatuur
+        tempvalues.append(sqltemp)
+        plt.plot(time_objects, tempvalues)
+        plt.xlabel('time (HH:MM)')
+        plt.ylabel('Temperature (°C)')
+        plt.title('Temperature')
+        plt.savefig('public/img/tempgraph.png', bbox_inches='tight')
+
+        # luchtvochtigheid
+        humidvalues.append(sqlhumid)
+        plt.plot(time_objects, humidvalues)
+        plt.xlabel('time (HH:MM)')
+        plt.ylabel('Humidity (%)')
+        plt.title('Humidity')
+        plt.savefig('public/img/humidgraph.png', bbox_inches='tight')
+
+        # licht
+        lightvalues.append(ldrValue)
+        plt.plot(time_objects, lightvalues)
+        plt.xlabel('time (HH:MM)')
+        plt.ylabel('Brightness (Lux)')
+        plt.title('Light')
+        plt.savefig('public/img/lightgraph.png', bbox_inches='tight')

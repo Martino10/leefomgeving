@@ -32,7 +32,7 @@ class DataController extends Controller
                 array_push($dataPerLocatie, $data[$x]);
             } 
         }
-        return view('data', ['data' => $data]);
+        return view('data', ['data' => $dataPerLocatie]);
     }
 
     public function detaildata($location_name) {

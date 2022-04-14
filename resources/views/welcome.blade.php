@@ -27,7 +27,6 @@
             }
 
             .container {
-                position: fixed;
                 display: flex;
                 flex-direction: column;
                 padding-top: 3vh;

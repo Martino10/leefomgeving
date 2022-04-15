@@ -1,3 +1,17 @@
+<style>
+    .w-logo {
+    width: 15vw !important;
+  }
+  @media only screen and (max-width: 840px) {
+    .w-logo {
+      width: 25vw !important;
+    }
+  }
+  .bg-green {
+    background-color: rgb(12, 156, 0) !important;
+  }
+</style>
+
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">

@@ -146,6 +146,7 @@ main{
 .roominfo{
     min-width: 10vw;
     margin-right: 5px;
+    margin-top: 1rem;
 }
 
 .onlineinfo{
@@ -249,6 +250,12 @@ main{
     width: auto;
 }
 
+.status_button {
+    z-index: 2;
+    padding: 0.5rem;
+    border: 1px solid #1BE70A;
+}
+
 </style>
 <script>
     // dropdown
@@ -259,30 +266,6 @@ main{
             dropdownlist.classList.remove("dropdownlistHide");
         } else {
             dropdownlist.classList.add("dropdownlistHide");
-        }
-    }
-
-    window.onload = () => {
-
-        // data svg colors
-        const valueElements = document.getElementsByClassName("datavalue");
-        const datacards = document.getElementsByClassName("datacard");
-
-        for(let i = 0; i < datacards.length; i++){
-            let value = parseFloat(valueElements[i].textContent);
-
-            if (value >= valueElements[i].dataset.max){
-                valueElements[i].style.color = 'red'
-                console.log(value + "is te hoog")
-            } else if (valueElements[i].textContent == "ja"){
-                valueElements[i].style.color = 'red'
-                console.log("er is geluidsoverlast")
-            } else if (value <= valueElements[i].dataset.min){
-                valueElements[i].style.color = 'red'
-                console.log(value + "is te laag")
-            } else {
-                valueElements[i].style.color = '#02A112'
-            }
         }
     }
 </script>
@@ -307,10 +290,11 @@ main{
     </div>
     <main>
         @foreach($data as $row)
+        <!-- <button class="status_button" onclick="toggleStatus({{$row->id}})"><p class="onlineinfo">Online</p></button> -->
+        <button class="status_button" onclick="toggleStatus({{$row->id}})">Online</button>
         <a href="/data/{{$row->naam}}">
             <article class="roomcard">
                 <div class="roominfo">
-                    <p class="onlineinfo">Online</p>
                     <p class="roomname">{{ $row->naam }}</p>
                     <p class="time">{{ date('d-m-Y H:i', strtotime( $row->gemeten_op )) }}</p>
                 </div>

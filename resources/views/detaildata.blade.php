@@ -310,8 +310,6 @@ td {
         </div>
       </button>
     </div>
-    <p class="datainfo">[DATA INFORMATIE] (wat is te hoog, wat is te laag, wat kun je eraan doen) Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt nesciunt eius harum dignissimos, cum tempore commodi dicta magni alias at a reiciendis? Ipsa officia illum quis assumenda quidem id earum!</p>
-    <!-- [GRAFIEKEN IPV ROOMCARDS] -->
     <main>
         <a href="/data/{{$location->naam}}">
             <article class="roomcard">

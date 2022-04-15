@@ -758,6 +758,17 @@ select {
 .w-8 {
   width: 2rem;
 }
+.w-logo {
+  width: 15vw;
+}
+@media only screen and (max-width: 840px) {
+  .w-logo {
+    width: 25vw;
+  }
+}
+.bg-green {
+  background-color: rgb(12, 156, 0)
+}
 .w-auto {
   width: auto;
 }

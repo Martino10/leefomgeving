@@ -270,30 +270,6 @@ td {
             dropdownlist.classList.add("dropdownlistHide");
         }
     }
-
-    window.onload = () => {
-
-        // data svg colors
-        const valueElements = document.getElementsByClassName("datavalue");
-        const datacards = document.getElementsByClassName("datacard");
-
-        for(let i = 0; i < datacards.length; i++){
-            let value = parseFloat(valueElements[i].textContent);
-
-            if (value >= valueElements[i].dataset.max){
-                valueElements[i].style.color = 'red'
-                console.log(value + "is te hoog")
-            } else if (valueElements[i].textContent == "ja"){
-                valueElements[i].style.color = 'red'
-                console.log("er is geluidsoverlast")
-            } else if (value <= valueElements[i].dataset.min){
-                valueElements[i].style.color = 'red'
-                console.log(value + "is te laag")
-            } else {
-                valueElements[i].style.color = '#02A112'
-            }
-        }
-    }
 </script>
 <body>
     <div class="titlebar">

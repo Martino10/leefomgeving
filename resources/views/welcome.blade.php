@@ -104,7 +104,7 @@
         <img src="/img/background1.svg" alt="Background vector"/>
         <div class="login">
             <button class="loginBtn" onclick="window.location.href='/login';">Inloggen</button>
-            <p>Nog geen account? <a href="#">Maak een account aan</a></p>
+            <p>Nog geen account? <a href="/register">Maak een account aan</a></p>
         </div>
     </div>
         <script defer src="{{ asset('js/app.js') }}"></script>

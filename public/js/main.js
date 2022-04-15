@@ -1,21 +1,23 @@
-const { exec } = require('child_process');
-// python script starten of stoppen
-function toggleStatus(num) {
-    var i = num - 1;
-    var status = document.getElementsByClassName('status');
-    if (status[i].innerHTML = 'Online') {
-        var shutdown = 'exit()'
-        status[i].innerHTML = 'Offline';
-        exec('python3 -c ' + shutdown, { encoding: 'utf-8' });
-    }
-    else {
-        status[i].innerHTML = 'Online';
-        exec('python3 code.py', { encoding: 'utf-8' });
-    }
-    
-}
-
 window.onload = () => {
+    // python script starten of stoppen
+    function toggleStatus(num) {
+        var i = num - 1;
+        var statustext = document.getElementsByClassName('onlineinfo');
+        var button = document.getElementsByClassName('status_button');
+        if (statustext[i].innerHTML == "Online") {
+            statustext[i].innerHTML = 'Offline';
+            statustext[i].style.color = 'red';
+            button[i].style.borderColor = 'red';
+        }
+        else if (statustext[i].innerHTML == 'Offline') {
+            statustext[i].innerHTML = 'Online';
+            statustext[i].style.color = '#1BE70A';
+            button[i].style.borderColor = '#1BE70A';
+        }
+        
+    }
+    window.toggleStatus = toggleStatus;
+
     // Verandert kleuren op basis van elementen en scores
     var green = 'invert(64%) sepia(52%) saturate(4174%) hue-rotate(75deg) brightness(110%) contrast(106%)';
     var yellow = 'invert(63%) sepia(97%) saturate(1397%) hue-rotate(13deg) brightness(98%) contrast(98%)';

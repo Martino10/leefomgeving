@@ -1,22 +1,27 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-const { exec } = require('child_process');
-// python script starten of stoppen
-function toggleStatus(num) {
-    var i = num - 1;
-    var status = document.getElementsByClassName('status');
-    if (status[i].innerHTML = 'Online') {
-        var shutdown = 'exit()'
-        status[i].innerHTML = 'Offline';
-        exec('python3 -c ' + shutdown, { encoding: 'utf-8' });
-    }
-    else {
-        status[i].innerHTML = 'Online';
-        exec('python3 code.py', { encoding: 'utf-8' });
-    }
-    
-}
-
 window.onload = () => {
+    // python script starten of stoppen
+    function toggleStatus(num) {
+        var i = num - 1;
+        var statustext = document.getElementsByClassName('onlineinfo');
+        var button = document.getElementsByClassName('status_button');
+        var status = document.getElementsByClassName('status');
+        if (statustext[i].innerHTML == "Online") {
+            statustext[i].innerHTML = 'Offline';
+            statustext[i].style.color = 'red';
+            button[i].style.borderColor = 'red';
+            status[i].setAttribute.value = 0;
+        }
+        else if (statustext[i].innerHTML == 'Offline') {
+            statustext[i].innerHTML = 'Online';
+            statustext[i].style.color = '#1BE70A';
+            button[i].style.borderColor = '#1BE70A';
+            status[i].setAttribute.value = 1;
+        }
+        
+    }
+    window.toggleStatus = toggleStatus;
+
     // Verandert kleuren op basis van elementen en scores
     var green = 'invert(64%) sepia(52%) saturate(4174%) hue-rotate(75deg) brightness(110%) contrast(106%)';
     var yellow = 'invert(63%) sepia(97%) saturate(1397%) hue-rotate(13deg) brightness(98%) contrast(98%)';
@@ -125,7 +130,5 @@ window.onload = () => {
     }
 
 }
-
-},{"child_process":2}],2:[function(require,module,exports){
 
 },{}]},{},[1]);

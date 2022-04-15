@@ -290,8 +290,7 @@ main{
     </div>
     <main>
         @foreach($data as $row)
-        <!-- <button class="status_button" onclick="toggleStatus({{$row->id}})"><p class="onlineinfo">Online</p></button> -->
-        <button class="status_button" onclick="toggleStatus({{$row->id}})">Online</button>
+        <button class="status_button" onclick="toggleStatus({{$row->id}})"><p class="onlineinfo">Online</p></button>
         <a href="/data/{{$row->naam}}">
             <article class="roomcard">
                 <div class="roominfo">

@@ -156,6 +156,7 @@ return array(
     'Database\\Seeders\\LdrTableSeeder' => $baseDir . '/database/seeders/LdrTableSeeder.php',
     'Database\\Seeders\\LocationsTableSeeder' => $baseDir . '/database/seeders/LocationsTableSeeder.php',
     'Database\\Seeders\\LuchtvochtigheidTableSeeder' => $baseDir . '/database/seeders/LuchtvochtigheidTableSeeder.php',
+    'Database\\Seeders\\QualityscoreTableSeeder' => $baseDir . '/database/seeders/QualityscoreTableSeeder.php',
     'Database\\Seeders\\TemperatuurTableSeeder' => $baseDir . '/database/seeders/TemperatuurTableSeeder.php',
     'Database\\Seeders\\UsersTableSeeder' => $baseDir . '/database/seeders/UsersTableSeeder.php',
     'DeepCopy\\DeepCopy' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',

@@ -681,6 +681,7 @@ class ComposerStaticInit4ed2d8d6c05374973c05fd4eea2e8a1d
         'Database\\Seeders\\LdrTableSeeder' => __DIR__ . '/../..' . '/database/seeders/LdrTableSeeder.php',
         'Database\\Seeders\\LocationsTableSeeder' => __DIR__ . '/../..' . '/database/seeders/LocationsTableSeeder.php',
         'Database\\Seeders\\LuchtvochtigheidTableSeeder' => __DIR__ . '/../..' . '/database/seeders/LuchtvochtigheidTableSeeder.php',
+        'Database\\Seeders\\QualityscoreTableSeeder' => __DIR__ . '/../..' . '/database/seeders/QualityscoreTableSeeder.php',
         'Database\\Seeders\\TemperatuurTableSeeder' => __DIR__ . '/../..' . '/database/seeders/TemperatuurTableSeeder.php',
         'Database\\Seeders\\UsersTableSeeder' => __DIR__ . '/../..' . '/database/seeders/UsersTableSeeder.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',

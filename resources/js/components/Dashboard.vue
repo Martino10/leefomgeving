@@ -18,32 +18,27 @@
         <div class="datagrid">
           <article class="datacard">
             <img src="/img/Zuurstof.svg" alt="Zuurstof" />
-            <p class="datalabel">Zuurstof</p>
-            <p class="datavalue">100%</p>
-          </article>
-          <article class="datacard">
-            <img src="/img/Luchtvocht.svg" alt="Luchtvocht" />
-            <p class="datalabel">Luchtvocht</p>
-            <p class="datavalue">75%</p>
-          </article>
-          <article class="datacard">
-            <img src="/img/Koolstofmonoxide.svg" alt="Koolstofmonoxide" />
-            <p class="datalabel">Koolstof- monoxide</p>
-            <p class="datavalue">741</p>
+            <p class="datalabel">Licht</p>
+            <p class="datavalue">420</p>
           </article>
           <article class="datacard">
             <img src="/img/Temperatuur.svg" alt="Temperatuur" />
             <p class="datalabel">Temperatuur</p>
-            <p class="datavalue">16°C</p>
+            <p class="datavalue">12°C</p>
           </article>
           <article class="datacard">
             <img src="/img/Gas.svg" alt="Gas" />
             <p class="datalabel">Gas</p>
-            <p class="datavalue">4PPM</p>
+            <p class="datavalue">312 PPM</p>
+          </article>
+          <article class="datacard">
+            <img src="/img/Luchtvocht.svg" alt="Luchtvocht" />
+            <p class="datalabel">Luchtvocht</p>
+            <p class="datavalue">121</p>
           </article>
           <article class="datacard">
             <img src="/img/Geluid.svg" alt="Geluid" />
-            <p class="datalabel">Geluid</p>
+            <p class="datalabel">Geluid overlast</p>
             <p class="datavalue">23dB</p>
           </article>
         </div>

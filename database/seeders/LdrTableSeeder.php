@@ -16,12 +16,17 @@ class LdrTableSeeder extends Seeder
     {
         DB::table('ldr')->insert([
             'location_id' => 1,
-            'value' => 700,
+            'value' => 50,
         ]);
 
         DB::table('ldr')->insert([
             'location_id' => 1,
-            'value' => 420,
+            'value' => 20,
+        ]);
+
+        DB::table('ldr')->insert([
+            'location_id' => 2,
+            'value' => 80,
         ]);
     }
 }

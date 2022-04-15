@@ -13,8 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+Route::middleware(['auth'])->group(function () {
+    // Routes waar je ingelogd voor moet zijn
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::get('/logout', '\App\Http\Controllers\LogoutController@perform')->name('logout.perform');
+    Route::get('/data', [\App\Http\Controllers\DataController::class, 'index'])->name('data');
+    Route::get('/data/{location_name}', [\App\Http\Controllers\DataController::class, 'detaildata'])->name('detaildata');
+});
 
-Route::get('/{any}', function () {
+Route::get('/', function () {
     return view('welcome');
-})->where('any', '.*');
+});
+
+
+
+require __DIR__.'/auth.php';

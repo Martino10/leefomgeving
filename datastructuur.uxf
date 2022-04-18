@@ -1,0 +1,53 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>330</x><y>260</y><w>210</w><h>80</h></coordinates><panel_attributes>Location
+--
+id: Integer
+naam: String
+aangemaakt_op: Timestamp</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>80</x><y>450</y><w>210</w><h>100</h></coordinates><panel_attributes>Ldr
+--
+id: Integer
+location_id: Integer
+value: Float
+gemeten_op: Timestamp</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>330</x><y>450</y><w>210</w><h>100</h></coordinates><panel_attributes>Gas
+--
+id: Integer
+location_id: Integer
+value: Float
+gemeten_op: Timestamp</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>570</x><y>450</y><w>210</w><h>100</h></coordinates><panel_attributes>Luchtvochtigheid
+--
+id: Integer
+location_id: Integer
+value: Float
+gemeten_op: Timestamp</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>460</x><y>590</y><w>210</w><h>100</h></coordinates><panel_attributes>Temperatuur
+--
+id: Integer
+location_id: Integer
+value: Float
+gemeten_op: Timestamp</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>330</y><w>50</w><h>140</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..n
+</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>530</x><y>280</y><w>180</w><h>190</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..n
+</panel_attributes><additional_attributes>10;20;140;20;140;170</additional_attributes></element><element><id>Relation</id><coordinates><x>170</x><y>280</y><w>180</w><h>190</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..n
+</panel_attributes><additional_attributes>160;20;10;20;10;170</additional_attributes></element><element><id>Relation</id><coordinates><x>470</x><y>330</y><w>130</w><h>280</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..n
+</panel_attributes><additional_attributes>10;10;10;70;90;70;90;260</additional_attributes></element><element><id>UMLClass</id><coordinates><x>220</x><y>590</y><w>210</w><h>100</h></coordinates><panel_attributes>Geluid
+--
+id: Integer
+location_id: Integer
+value: String
+gemeten_op: Timestamp</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>330</y><w>110</w><h>280</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..n
+</panel_attributes><additional_attributes>80;10;80;70;10;70;10;260</additional_attributes></element><element><id>UMLClass</id><coordinates><x>330</x><y>10</y><w>210</w><h>100</h></coordinates><panel_attributes>Qualityscore
+--
+id: Integer
+location_id: Integer
+value: Integer
+gemeten_op: Timestamp</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>100</y><w>50</w><h>180</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..n
+</panel_attributes><additional_attributes>10;160;10;10</additional_attributes></element></diagram>

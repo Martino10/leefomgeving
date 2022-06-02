@@ -19,7 +19,6 @@ class CreateLocationsTable extends Migration
             $table->string('naam');
             $table->string('plaats');
             $table->string('adres');
-            $table->string('foto');
             $table->timestamp('aangemaakt_op')->default(\DB::raw('CURRENT_TIMESTAMP'));
         });
     }

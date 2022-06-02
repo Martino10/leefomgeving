@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Models\Locations;
 use DB;
 
 class DataController extends Controller
@@ -18,7 +19,7 @@ class DataController extends Controller
         INNER JOIN ldr ON l.id = ldr.location_id
         INNER JOIN qualityscore ON l.id = qualityscore.location_id
         WHERE ldr.id = temperatuur.id AND ldr.id = gas.id AND ldr.id = luchtvochtigheid.id AND ldr.id = geluid.id AND ldr.id = qualityscore.id
-        ORDER BY ldr.gemeten_op desc";
+        ORDER BY l.id";
 
         // kolommen: id | naam | plaats | adres | ldr | temperatuur | gas | luchtvochtigheid | geluid | qualityscore | gemeten_op
         $data = DB::select($dataquery);
@@ -32,7 +33,18 @@ class DataController extends Controller
                 array_push($dataPerLocatie, $data[$x]);
             } 
         }
-        return view('data', ['data' => $dataPerLocatie]);
+
+        // Zorgt dat ongemeten locaties ook worden getoond
+        $ongemeten_locaties = array();
+        $locations = Locations::all();
+        for ($x = 0; $x < count($locations); $x++) {
+            if (!in_array($locations[$x]->id, $id_array)) {
+                array_push($ongemeten_locaties, $locations[$x]);
+            }
+        }
+
+        
+        return view('data', ['ongemeten_locaties' => $ongemeten_locaties ,  'data' => $dataPerLocatie]);
     }
 
     public function detaildata($location_name) {
@@ -53,5 +65,14 @@ class DataController extends Controller
         $summary = $locationdata[0];
 
         return view('detaildata', ['data' => $locationdata, 'location' => $location, 'summary' => $summary]);
+    }
+
+    public function storedevice(Request $request, Locations $location) {
+        $location->naam = $request->name;
+        $location->plaats = $request->place;
+        $location->adres = $request->address;
+        $location->save();
+        
+        return redirect()->route('data');
     }
 }

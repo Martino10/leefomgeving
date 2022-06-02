@@ -3,6 +3,75 @@ th, td {
     border: 1px solid black;
 }
 
+.add_device-container {
+  position: absolute;
+  background-color: #282828;
+  width: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 2rem;
+  /* z-index: 2; */
+}
+
+.add_device__header {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 150%;
+}
+
+.add_device__inputrow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 2px solid rgb(12, 156, 0);
+  padding: 1rem;
+}
+.add_device__inputrow:last-of-type {
+  border-bottom: 5px solid rgb(12, 156, 0);
+}
+
+.add_device__buttonrow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1rem;
+}
+
+.add_device__buttonrow > button {
+  grid-column-start: 2;
+  background: #02A112;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.add_device__form {
+  position: relative;
+  height: fit-content;
+}
+
+.add_device__inputrow > label {
+  align-self: center;
+}
+
+.add_device__input {
+  color: black;
+}
+
+.add_device__button {
+  padding: 1rem;
+}
+
+.add_device__button:hover {
+  background-color: green;
+  transform: scale(0.99);
+}
+
+.no_data__text {
+  margin: 0 auto;
+  align-self: center;
+  color: #a7a7a7;
+}
+
 .w-logo {
     width: 15vw !important;
   }

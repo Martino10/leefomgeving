@@ -21,6 +21,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/logout', '\App\Http\Controllers\LogoutController@perform')->name('logout.perform');
     Route::get('/data', [\App\Http\Controllers\DataController::class, 'index'])->name('data');
     Route::get('/data/{location_name}', [\App\Http\Controllers\DataController::class, 'detaildata'])->name('detaildata');
+    Route::post('/data/add_device', [\App\Http\Controllers\DataController::class, 'storedevice'])->name('storedevice');
 });
 
 Route::get('/', function () {

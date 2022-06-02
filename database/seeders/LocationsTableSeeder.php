@@ -19,7 +19,6 @@ class LocationsTableSeeder extends Seeder
             'naam' => "Le Carrefour",
             'plaats' => "Leiden",
             'adres' => "Dellaertweg 1",
-            'foto' => "/img/lecarrefour.jpg",
         ]);
 
         DB::table('locations')->insert([
@@ -27,7 +26,6 @@ class LocationsTableSeeder extends Seeder
             'naam' => "Thuis",
             'plaats' => "Woubrugge",
             'adres' => "Beatrixlaan 42",
-            'foto' => "/img/thuis.jpg",
         ]);
     }
 }

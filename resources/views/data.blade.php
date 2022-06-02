@@ -123,9 +123,18 @@ body{
     display: flex;
 }
 
+.utilbar button:hover {
+    background-color: green;
+    transform: scale(0.99);
+}
+
 .utilbar button img{
     height: 0.6rem;
     margin-right: 0.3rem;
+}
+
+.utilbar > p {
+    font-size: 150%;
 }
 
 main{
@@ -251,7 +260,7 @@ main{
 }
 
 .status_button {
-    z-index: 2;
+    /* z-index: 2; */
     padding: 0.5rem;
     border: 1px solid #1BE70A;
 }
@@ -267,6 +276,12 @@ main{
         } else {
             dropdownlist.classList.add("dropdownlistHide");
         }
+    }
+
+    function openForm() {
+        let add_device_form = document.getElementById("add_device");
+
+        add_device_form.style.display = ''
     }
 </script>
 <body>
@@ -286,7 +301,7 @@ main{
     </div>
     <div class="utilbar">
       <p>Apparaten</p>
-      <button>+ Apparaat Toevoegen</button>
+      <button onclick="openForm()">+ Apparaat Toevoegen</button>
     </div>
     <main>
         @foreach($data as $row)
@@ -330,7 +345,40 @@ main{
             </article>
         </a>
         @endforeach
+        @foreach($ongemeten_locaties as $locatie)
+            <button class="status_button" onclick="toggleStatus({{$locatie->id}})"><p class="onlineinfo">Online</p></button>
+            <article class="roomcard">
+                <div class="roominfo">
+                    <p class="roomname">{{ $locatie->naam }}</p>
+                    <p class="time">{{ date('d-m-Y H:i', strtotime( $locatie->aangemaakt_op )) }}</p>
+                </div>
+                <p class="no_data__text"> Er is nog geen data beschikbaar voor deze locatie... </p>
+            </article>
+        @endforeach
     </main>
+    <section id="add_device" class="add_device-container" style="display: none">
+        <h3 class="add_device__header"> Voeg Apparaat Toe </h3>
+        <form id="add_device__form" class="add_device__form" action="{{ route('storedevice') }}" method="POST">
+            @csrf
+            <section class="add_device__inputrow">
+                <label for="name"> Naam </label>
+                <input class="add_device__input" name="name" id="name" type="text" />
+            </section>
+
+            <section class="add_device__inputrow">
+                <label for="place"> Plaats </label>
+                <input class="add_device__input" name="place" id="place" type="text" />
+            </section>
+            
+            <section class="add_device__inputrow">
+                <label for="address"> Adres </label>
+                <input class="add_device__input" name="address" id="address" type="text" />
+            </section>
+            <section class="add_device__buttonrow">
+                <button class="add_device__button" type="submit"> Voeg Toe </button>
+            </section>
+        </form>
+    </section>
 </body>
 <!-- Tabel om data te testen -->
 <!-- <table class="data_table">

@@ -5,18 +5,18 @@ window.onload = () => {
         var i = num - 1;
         var statustext = document.getElementsByClassName('onlineinfo');
         var button = document.getElementsByClassName('status_button');
-        var status = document.getElementsByClassName('status');
+        // var status = document.getElementsByClassName('status');
         if (statustext[i].innerHTML == "Online") {
             statustext[i].innerHTML = 'Offline';
             statustext[i].style.color = 'red';
             button[i].style.borderColor = 'red';
-            status[i].setAttribute.value = 0;
+            // status[i].setAttribute.value = 0;
         }
         else if (statustext[i].innerHTML == 'Offline') {
             statustext[i].innerHTML = 'Online';
             statustext[i].style.color = '#1BE70A';
             button[i].style.borderColor = '#1BE70A';
-            status[i].setAttribute.value = 1;
+            // status[i].setAttribute.value = 1;
         }
         
     }

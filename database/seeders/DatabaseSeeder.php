@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             QualityscoreTableSeeder::class,
             LocationsTableSeeder::class,
             UsersTableSeeder::class,
-            StatusTableSeeder::class,
+            // StatusTableSeeder::class,
         ]);
     }
 }

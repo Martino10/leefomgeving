@@ -1,70 +1,203 @@
+@extends('default')
+@section('title')   
+    Dashboard
+@endsection('title')
+
+@section('content')
 <style>
-    .w-logo {
-    width: 15vw !important;
-  }
-  @media only screen and (max-width: 840px) {
-    .w-logo {
-      width: 25vw !important;
-    }
-  }
-  .bg-green {
-    background-color: rgb(12, 156, 0) !important;
-  }
+*, *::before, *::after {
+padding: 0;
+margin: 0; 
+box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'SF Pro Display', sans-serif;
+    background-color: black;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    height: 100vh;
+    width: 100vw;
+}
+
+.title h1 {
+    font-size: 5.4rem;
+    font-weight: 500;
+
+    background-color: white;
+    background-image: linear-gradient(90deg, #099F2A 0%, #2EF242 100%);
+    background-clip: text;
+    background-size: 100%;
+    background-repeat: repeat;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+.title h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: white;
+}
+
+.container img {
+    padding-top: 2rem;
+}
+
+.loginBtn {
+    margin-top: 3rem;
+    width: 32rem;
+    height: 3.1rem;
+    border-radius: 5px;
+    border: none;
+    color: black;
+    background-color: white;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.loginBtn:hover {
+    cursor: pointer;
+}
+
+.login p {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 200;
+    padding: 2rem;
+}
+
+.login a {
+    font-weight: bold;
+    color: #0C9600;
+    text-decoration: none;
+}
+
+
+.loginForm {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 9vh;
+    color: white;
+}
+
+.email h1, .password h1 {
+    font-weight: 500;
+    font-size: 1.7rem;
+    padding: 1.5rem 0 1rem 0;
+    text-align: left;
+}
+
+
+.rememberForget {
+   display: flex;
+   width: 100%;
+   align-items: center;
+   margin-top: 1rem;
+   font-size: 1.2rem;   
+}
+
+.rememberForget input {
+    height: 2rem;
+    width: 2rem;
+}
+
+.rememberForget label {
+    margin-left: 0.5rem;
+}
+
+.rememberForget a {
+    margin-left: auto;
+    text-decoration: none;
+    color: white;
+}
+
+
+.resetPswd {
+    width: 32rem;
+    text-align: right;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+form input {
+    background-color: #121212;
+    border: 1px solid #3E3E3E;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 32rem;
+    height: 3.5rem;
+}
+
+input[type=password],input[type=email] {
+    font-size: 1.3rem;
+    color: white;
+    padding-left: 1rem;
+    background-color: #121212;
+}
+
+form input::placeholder {
+    padding-left: 1rem;   
+}
+
+.rememberForgot {
+    width: 100%;
+    display: inline-block;
+}
+
+.registerBtn {
+    margin-top: 1.2rem;
+    width: 32rem;
+    height: 3.1rem;
+    border-radius: 5px;
+    border: 1px solid white;
+    color: white;
+    background-color: transparent;
+    font-size: 1.4rem;
+    font-weight: 200;
+}
+
 </style>
 
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-logo h-logo fill-current text-gray-500" />
-            </a>
-        </x-slot>
-
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-            </div>
-
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+<div class="container">
+    <div class="title">
+        <h1>VisiRoom</h1>
+        <h2>Quality of tomorrow</h2>
+    </div>
+    <form class="loginForm" method="POST" action="{{ route('login') }}">
+        @csrf
+        <div class="email">
+            <h1>E-Mail</h1>
+            <input type="email" name="email" id="email" placeholder="Vul hier je e-mail in">
+        </div>
+        <div class="password">
+            <h1>Wachtwoord</h1>
+            <input type="password" name="password" id="password" placeholder="Vul hier je wachtwoord in">
+        </div>
+        <div class="rememberForget">
+            <input type="checkbox" name="Remember me" id="remember">
+            <label>Onthoud mij</label>
+            <a href="#">Wachtwoord vergeten?</a>
+        </div>
+        <button class="loginBtn">Inloggen</button>
+        <button class="registerBtn">Maak een account aan</button>
+    </form>
+</div>
+@endsection('content')

@@ -194,10 +194,10 @@ form input::placeholder {
         <div class="rememberForget">
             <input type="checkbox" name="Remember me" id="remember">
             <label>Onthoud mij</label>
-            <a href="#">Wachtwoord vergeten?</a>
+            <a href="{{ route('password.request') }}">Wachtwoord vergeten?</a>
         </div>
         <button class="loginBtn">Inloggen</button>
-        <button class="registerBtn">Maak een account aan</button>
+        <a class="registerBtn" href="/register">Maak een account aan</button>
     </form>
 </div>
 @endsection('content')
